@@ -1,0 +1,5 @@
+from math import sin
+u=0
+for i in range(0,41):
+     print(u,i)
+     u=(1+sin(u))/2
