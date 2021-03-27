@@ -1,10 +1,6 @@
 import math as m 
 import fonctions as f 
 
-def g(x):
-    x=(m.sin(x)+1)/2
-    return x
-
 def PointFixe(g,x0,epsilon,Nitermax):
     n = 0
     xold = x0
@@ -40,21 +36,22 @@ def g5(x):
     return m.atan((x+5)/2)
 
 def g6(x):
-    return m.log((x**2)+3)
+    return m.log((x**2, m.e)+3)
 
 def g7(x):
     return (7-4*m.log(x))/3
 
 def g8(x):
-    return 
+    return (2*(x**2)-(4*x)+17)**(1/4)
 
 def g8bis(x):
-    return -((2*(x**2)-(4*x)+17)**0.25) 
+    return -((2*(x**2)-(4*x)+17)**(1/4)) 
 
 def g9(x):
-    return log(2*sin(x)+7)
+    return m.log(2*m.sin(x)+7)
 
 def g10(x):
-    return log(10)-log(log(x**2+4))
+    return m.log(10)-m.log(m.log(x**2+4,m.e))
+
 
 print(PointFixe(g2, 1, 1e-10, 50))
