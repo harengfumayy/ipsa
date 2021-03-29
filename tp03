@@ -1,0 +1,81 @@
+#--fonctions------------------------------------------------------------------
+import math as m
+
+def f0(x):
+    return (1+m.sin(x))/2
+
+def f1(x):
+    return x**4+3*x-9
+
+def f2(x):
+    return x-3*m.cos(x)+2
+
+def f3(x):
+    return x*m.exp(x)-7
+
+def f4(x):
+    return m.exp(x)-x-10
+
+def f5(x):
+    return 2*m.tan(x)-x-5
+
+def f6(x):
+    return m.exp(x)-x**2-3
+
+def f7(x):
+    return 3*x+4*m.ln(x)-7
+
+def f8(x):
+    return x**4-2*x**2+4*x-17
+
+def f9(x):
+    return m.exp(x)-2*m.sin(x)-7
+
+def f10(x):
+    return m.ln(x**2+4)*m.exp(x)-10
+
+#--dérivées-------------------------------------------------------------------
+
+def f1der(x):
+    return 4*x**3 + 3
+
+def f2der(x):
+    return 1 + 3*m.sin(x)
+
+def f3der(x):
+    return m.exp(x) + x*m.exp(x)
+
+def f4der(x):
+    return m.exp(x)-1
+
+def f5der(x):
+    return 2/(m.cos(x)**2) - 1
+
+def f6der(x):
+    return m.exp(x)-2*x
+
+def f7der(x):
+    return 3 + 4/x
+    
+def f8der(x):
+    return 4*x**3-4*x+4
+    
+def f9der(x):
+    return m.exp(x) - m.cos(x)
+
+def f10der(x):
+    ((2*x*m.exp(x))/(x**2+4))+m.log(x**2+4)*m.exp(x)
+
+#--fonction-Point_Fixe--------------------------------------------------------
+
+def Point_Fixe(f,fder,x0,epsilon,Nitermax):
+    n=0
+    xold = x0
+    erreur = f(xold) - xold
+    while abs(erreur)>epsilon and n<Nitermax:
+        xnew = xold - (f(xold)/fder(xold))
+        erreur = xnew - xold
+        xold = xnew
+        print(n)
+        n+=1
+    return xnew
