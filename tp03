@@ -33,7 +33,7 @@ def f9(x):
     return m.exp(x)-2*m.sin(x)-7
 
 def f10(x):
-    return m.ln(x**2+4)*m.exp(x)-10
+    return m.log(x**2+4)*m.exp(x)-10
 
 #--dérivées-------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ def f9der(x):
     return m.exp(x) - 2*m.cos(x)
 
 def f10der(x):
-    ((2*x*m.exp(x))/(x**2+4))+m.log(x**2+4)*m.exp(x)
+    return m.exp(x)*((2*x)/(x**2+4)+m.log(x**2+4))
 
 #--fonction-Point_Fixe--------------------------------------------------------
 
