@@ -1,7 +1,7 @@
 import math as m
 import matplotlib.pyplot as plt
 
-"""___fonctions___"""
+#--fonctions------------------------------------------------------------------
 
 def f0(x):
     return (1+m.sin(x))/2
@@ -15,7 +15,21 @@ def f4(x):
 def f6(x):
     return m.exp(x)-x**2-3
 
-"""___pointfixe___"""
+#--dérivées-------------------------------------------------------------------
+
+def f0der(x):
+    return 0.5*m.cos(x)
+
+def f2der(x):
+    return 1 + 3*m.sin(x)
+
+def f4der(x):
+    return m.exp(x)-1
+
+def f6der(x):
+    return m.exp(x)-2*x
+
+#--Méthodes-de-résolution-+-tracé-de-graphes-propres--------------------------
 
 def Point_Fixe(g, x0, epsilon, Nitermax):
     
@@ -42,7 +56,6 @@ def Point_Fixe(g, x0, epsilon, Nitermax):
     plt.semilogy(p_n, p_en, 'k')
     return p_n, p_xn, p_en 
 
-"""___Newton___"""
 def Newton(f, fder, x0, epsilon, Nitermax):
     
     global n_n
@@ -67,8 +80,6 @@ def Newton(f, fder, x0, epsilon, Nitermax):
         n+=1
     plt.semilogy(n_n, n_en, 'b')
     return n_n, n_xn, n_en 
-
-"""___dichotomie___"""
 
 def Dichotomie(f, a0, b0, epsilon, Nitermax):
     
@@ -100,9 +111,6 @@ def Dichotomie(f, a0, b0, epsilon, Nitermax):
     plt.semilogy(d_n, d_en, 'g')
     return d_n, d_xn, d_en
 
-
-"""___sécante___"""
-
 def Secante(f, x0, x1, epsilon, Nitermax):
     
     global s_n
@@ -126,3 +134,12 @@ def Secante(f, x0, x1, epsilon, Nitermax):
     return s_n, s_xn, s_en
 
 Secante(f0, 0, 1, 1e-10, 5e4)
+
+#--Tracé-d'un-graphique-pour-toutes-les-méthodes------------------------------
+
+def graph(f, fder, x0, x1, a0, b0, epsilon, Nitermax):
+    Point_Fixe(f, x0, epsilon, Nitermax)
+    Newton(f, fder, x0, epsilon, Nitermax)
+    Dichotomie(f, a0, b0, epsilon, Nitermax)
+    Secante(f, x0, x1, epsilon, Nitermax)
+    plt.semilogy(d_n, d_en, p_n, p_en, n_n, n_en, s_n, s_en)
