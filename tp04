@@ -137,8 +137,8 @@ Secante(f0, 0, 1, 1e-10, 5e4)
 
 #--Tracé-d'un-graphique-pour-toutes-les-méthodes------------------------------
 
-def graph(f, fder, x0, x1, a0, b0, epsilon, Nitermax):
-    Point_Fixe(f, x0, epsilon, Nitermax)
+def graph(f, fder, g, x0, x1, a0, b0, epsilon, Nitermax):
+    Point_Fixe(g, x0, epsilon, Nitermax)
     Newton(f, fder, x0, epsilon, Nitermax)
     Dichotomie(f, a0, b0, epsilon, Nitermax)
     Secante(f, x0, x1, epsilon, Nitermax)
