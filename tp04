@@ -1,5 +1,3 @@
-"""___pointfixe___"""
-
 def Point_Fixe(g, x0, epsilon, Nitermax):
     p_n = []
     p_xn = []
@@ -16,7 +14,7 @@ def Point_Fixe(g, x0, epsilon, Nitermax):
         p_xn.append(xnew)
         p_en.append(abs(erreur))
         n+=1
-    return xnew 
+    return p_n, p_xn, p_en 
 
 """___Newton___"""
 def Newton(f, fder, x0, epsilon, Nitermax):
@@ -35,7 +33,7 @@ def Newton(f, fder, x0, epsilon, Nitermax):
         n_xn.append(xnew)
         n_en.append(abs(erreur))
         n+=1
-    return xnew 
+    return n_n, n_xn, n_en 
 
 """___dichotomie___"""
 
@@ -60,8 +58,7 @@ def Dichotomie(f, a0, b0, epsilon, Nitermax):
            d_en.append(abs(b0 - a0))
            n = n + 1
            #print(n)
-    return m
-
+    return d_n, d_xn, d_en
 
 
 """___sécante___"""
