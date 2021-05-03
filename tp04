@@ -142,4 +142,4 @@ def graph(f, fder, x0, x1, a0, b0, epsilon, Nitermax):
     Newton(f, fder, x0, epsilon, Nitermax)
     Dichotomie(f, a0, b0, epsilon, Nitermax)
     Secante(f, x0, x1, epsilon, Nitermax)
-    plt.semilogy(d_n, d_en, p_n, p_en, n_n, n_en, s_n, s_en)
+
