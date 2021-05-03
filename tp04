@@ -1,7 +1,6 @@
-
 """___pointfixe___"""
 
-def Point_Fixe(g,x0,epsilon,Nitermax):
+def Point_Fixe(g, x0, epsilon, Nitermax):
     p_n = []
     p_xn = []
     p_en = []
@@ -12,15 +11,18 @@ def Point_Fixe(g,x0,epsilon,Nitermax):
         xnew = g(xold)
         erreur = xnew - xold
         xold = xnew
-        print(n)
+        #print(n)
+        p_n.append(n)
+        p_xn.append(xnew)
+        p_en.append(abs(erreur))
         n+=1
     return xnew 
 
 """___Newton___"""
-def Newton(f,fder,x0,epsilon,Nitermax):
-    r_n = []
-    r_xn = []
-    r_en = []
+def Newton(f, fder, x0, epsilon, Nitermax):
+    n_n = []
+    n_xn = []
+    n_en = []
     n=0
     xold = x0
     erreur = f(xold) - xold
@@ -28,27 +30,33 @@ def Newton(f,fder,x0,epsilon,Nitermax):
         xnew = xold - (f(xold)/fder(xold))
         erreur = xnew - xold
         xold = xnew
-        print(n)
+        #print(n)
+        n_n.append(n)
+        n_xn.append(xnew)
+        n_en.append(abs(erreur))
         n+=1
     return xnew 
 
 """___dichotomie___"""
 
-def Dichotomie(f,a0,b0,epsilon,Nitermax):
+def Dichotomie(f, a0, b0, epsilon, Nitermax):
     d_n = []
     d_xn = []
     d_en = []
     n=0
-    while abs((b0 - a0)) > epsilon and n<Nitermax:
+    while abs(b0 - a0) > epsilon and n<Nitermax:
         m = (a0 + b0) / 2
         if (f(a0)*f(m) <= 0):
            b0 = m
            n = n + 1
-           print(n)
+           d_n.append(n)
+           d_xn.append(b0)
+           d_en.append(abs(b0 - a0))
+           #print(n)
         else:
            a0 = m
            n = n + 1
-           print(n)
+           #print(n)
     return m
 
 
